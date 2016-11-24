@@ -415,6 +415,7 @@ void PrintEndMessage(int windowHeight, int windowWidth, int h, bool won, bool de
 }
 
 int main(){
+    SetConsoleTitleA("Bomber");
     hStdin = GetStdHandle(STD_INPUT_HANDLE);
     console = GetStdHandle(STD_OUTPUT_HANDLE);
     ConsoleBufferSize(0,0);
@@ -464,6 +465,7 @@ int main(){
 
         bool finished(false), won(false);
         while(!finished){
+            ConsoleBufferSize(0,0);
             GetConsoleScreenBufferInfo(console, &csbi);
             x = csbi.srWindow.Bottom;
             y = csbi.srWindow.Right;
@@ -501,6 +503,7 @@ int main(){
 
         FlushConsoleInputBuffer(hStdin);
         for(;;){
+            ConsoleBufferSize(0,0);
             GetConsoleScreenBufferInfo(console, &csbi);
             x = csbi.srWindow.Bottom;
             y = csbi.srWindow.Right;
